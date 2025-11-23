@@ -10,9 +10,7 @@ function Home() {
         <div className="home__content">
           <div className="home__pixel-frame">
             <div className="home__avatar">
-              <div className="pixel-art-placeholder">
-                <span>CK</span>
-              </div>
+              <img src="/assets/images/profile_image.png" alt="Christoph Klemtz" className="home__profile-image" />
             </div>
           </div>
 
