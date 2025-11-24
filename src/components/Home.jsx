@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../i18n/LanguageContext';
+import profileGif from '/assets/gifs/profile_picture.gif';
 
 function Home() {
   const { t } = useTranslation();
@@ -10,7 +11,7 @@ function Home() {
         <div className="home__content">
           <div className="home__pixel-frame">
             <div className="home__avatar">
-              <img src="/assets/images/profile_image.png" alt="Christoph Klemtz" className="home__profile-image" />
+              <img src={profileGif} alt="Christoph Klemtz" className="home__profile-image" />
             </div>
           </div>
 

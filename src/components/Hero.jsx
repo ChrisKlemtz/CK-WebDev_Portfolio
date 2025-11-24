@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import profileGif from '/assets/gifs/profile_picture.gif';
 
 function Hero() {
   return (
@@ -7,9 +8,7 @@ function Hero() {
         <div className="hero__content">
           <div className="hero__pixel-frame">
             <div className="hero__avatar">
-              <div className="pixel-art-placeholder">
-                <span>DEV</span>
-              </div>
+              <img src={profileGif} alt="Profile" className="hero__profile-image" />
             </div>
           </div>
 
