@@ -1007,6 +1007,82 @@ section {
   display: flex;
   align-items: center;
 
+  &__top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+    gap: $spacing-md;
+
+    @media (max-width: $breakpoint-xs) {
+      flex-direction: column;
+      align-items: stretch;
+      gap: $spacing-sm;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-sm;
+    align-items: center;
+
+    @media (max-width: $breakpoint-xs) {
+      justify-content: center;
+    }
+  }
+
+  &__lang-toggle {
+    background-color: $color-accent-yellow;
+    border: 2px solid $color-white;
+    padding: $spacing-xs;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    font-family: $font-primary;
+    font-size: $font-size-small;
+    transition: all $transition-fast;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: $shadow-small;
+
+    &:hover {
+      background-color: $color-accent-green;
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 $color-primary-dark;
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  &__theme-toggle {
+    background-color: $color-accent-green;
+    border: 2px solid $color-white;
+    padding: $spacing-xs;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    font-family: $font-primary;
+    transition: all $transition-fast;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: $shadow-small;
+
+    &:hover {
+      background-color: $color-accent-yellow;
+      transform: rotate(90deg);
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      width: 44px;
+      height: 44px;
+    }
+  }
+
   &__box {
     max-width: 800px;
     margin: 0 auto;
@@ -1197,6 +1273,56 @@ section {
     font-style: italic;
     margin: 0;
   }
+
+  &__toggle-buttons {
+    position: absolute;
+    top: $spacing-md;
+    right: $spacing-md;
+    display: flex;
+    gap: $spacing-sm;
+    z-index: 10;
+
+    @media (max-width: $breakpoint-xs) {
+      top: $spacing-sm;
+      right: $spacing-sm;
+      gap: $spacing-xs;
+    }
+  }
+
+  &__theme-toggle {
+    background-color: $color-accent-green;
+    border: $border-width solid $color-primary-dark;
+    color: $color-primary-dark;
+    padding: $spacing-xs $spacing-sm;
+    font-family: $font-primary;
+    font-size: $font-size-small;
+    cursor: pointer;
+    box-shadow: $shadow-small;
+    transition: all $transition-fast;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+
+    &:hover {
+      background-color: $color-accent-yellow;
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 $color-primary-dark;
+    }
+
+    &:active {
+      transform: translate(4px, 4px);
+      box-shadow: none;
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      width: 44px;
+      height: 44px;
+      font-size: 11px;
+    }
+  }
 }
 
 // Home Page (Portfolio Mode)
@@ -1322,9 +1448,13 @@ section {
 // Game Mode back button
 .game-mode__back-btn {
   display: inline-block;
-  margin-bottom: $spacing-lg;
   padding: $spacing-sm $spacing-md !important;
   font-size: $font-size-small !important;
+
+  @media (max-width: $breakpoint-xs) {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 // Header back button
@@ -1367,11 +1497,46 @@ section {
   margin-left: $spacing-sm;
 }
 
-.landing__lang-toggle {
+.landing__toggle-buttons {
   position: absolute;
   top: $spacing-md;
   right: $spacing-md;
+  display: flex;
+  gap: $spacing-sm;
   z-index: 10;
+}
+
+.landing__theme-toggle {
+  background-color: $color-accent-green;
+  border: $border-width solid $color-primary-dark;
+  color: $color-primary-dark;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-primary;
+  font-size: $font-size-large;
+  cursor: pointer;
+  box-shadow: $shadow-small;
+  transition: all $transition-fast;
+  padding: 0;
+
+  &:hover {
+    background-color: $color-accent-yellow;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 $color-primary-dark;
+  }
+
+  &:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+  }
+}
+
+.landing__lang-toggle {
+  width: 48px;
+  height: 48px;
 }
 
 // Back to Top Button
@@ -1716,6 +1881,26 @@ body.dark-mode {
       background-color: rgba(0, 217, 255, 0.1);
       border-left-color: $color-dark-accent-cyan;
     }
+
+    &__lang-toggle {
+      background-color: $color-dark-accent-cyan;
+      border-color: $color-dark-text;
+      color: $color-dark-bg;
+
+      &:hover {
+        background-color: $color-dark-accent-blue;
+        box-shadow: 2px 2px 0 $color-dark-text;
+      }
+    }
+
+    &__theme-toggle {
+      background-color: $color-dark-accent-cyan;
+      border-color: $color-dark-text;
+
+      &:hover {
+        background-color: $color-dark-accent-blue;
+      }
+    }
   }
 
   .feature-item {
@@ -1739,6 +1924,18 @@ body.dark-mode {
   // Language Toggle
   .header__lang-toggle,
   .landing__lang-toggle {
+    background-color: $color-dark-accent-cyan;
+    border-color: $color-dark-text;
+    color: $color-dark-bg;
+
+    &:hover {
+      background-color: $color-dark-accent-blue;
+      box-shadow: 2px 2px 0 $color-dark-text;
+    }
+  }
+
+  // Landing Theme Toggle
+  .landing__theme-toggle {
     background-color: $color-dark-accent-cyan;
     border-color: $color-dark-text;
     color: $color-dark-bg;

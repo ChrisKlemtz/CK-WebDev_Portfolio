@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '../i18n/LanguageContext';
+import { useTheme } from '../contexts/ThemeContext';
 
 function Landing() {
   const [isAnimating, setIsAnimating] = useState(false);
   const navigate = useNavigate();
   const { language, toggleLanguage, t } = useTranslation();
+  const { isDarkMode, toggleTheme } = useTheme();
 
   const handlePortfolioClick = () => {
     setIsAnimating(true);
@@ -60,13 +62,22 @@ function Landing() {
             </p>
           </div>
 
-          <button
-            className="landing__lang-toggle"
-            onClick={toggleLanguage}
-            aria-label="Toggle language"
-          >
-            {language === 'de' ? 'EN' : 'DE'}
-          </button>
+          <div className="landing__toggle-buttons">
+            <button
+              className="landing__theme-toggle"
+              onClick={toggleTheme}
+              aria-label="Toggle dark mode"
+            >
+              {isDarkMode ? '☀' : '🌙'}
+            </button>
+            <button
+              className="landing__lang-toggle"
+              onClick={toggleLanguage}
+              aria-label="Toggle language"
+            >
+              {language === 'de' ? 'EN' : 'DE'}
+            </button>
+          </div>
         </div>
       </div>
     </section>

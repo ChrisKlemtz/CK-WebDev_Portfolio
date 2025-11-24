@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
+import { useTheme } from '../../contexts/ThemeContext';
 import Phaser from 'phaser';
 import dogGif from '/assets/gifs/dog_anoying.gif';
 
 function GameMode() {
-  const { t } = useTranslation();
+  const { language, toggleLanguage, t } = useTranslation();
+  const { isDarkMode, toggleTheme } = useTheme();
   const gameContainerRef = useRef(null);
   const gameInstanceRef = useRef(null);
 
@@ -60,9 +62,28 @@ function GameMode() {
   return (
     <section className="game-mode">
       <div className="container">
-        <Link to="/" className="game-mode__back-btn retro-btn retro-btn--secondary">
-          {t('game.backToSelection')}
-        </Link>
+        <div className="game-mode__top-bar">
+          <Link to="/" className="game-mode__back-btn retro-btn retro-btn--secondary">
+            {t('game.backToSelection')}
+          </Link>
+
+          <div className="game-mode__actions">
+            <button
+              className="game-mode__lang-toggle"
+              onClick={toggleLanguage}
+              aria-label="Toggle language"
+            >
+              <span className="pixel-icon">{language === 'de' ? 'EN' : 'DE'}</span>
+            </button>
+            <button
+              className="game-mode__theme-toggle"
+              onClick={toggleTheme}
+              aria-label="Toggle dark mode"
+            >
+              <span className="pixel-icon">{isDarkMode ? '☀' : '🌙'}</span>
+            </button>
+          </div>
+        </div>
 
         <div className="retro-box game-mode__box">
           <h2 className="game-mode__title">
