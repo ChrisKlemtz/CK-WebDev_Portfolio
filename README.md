@@ -7,7 +7,7 @@ A modern portfolio website with a nostalgic Game Boy Color aesthetic, featuring 
 - **Retro Game Boy Design**: Pixel-perfect styling inspired by the Game Boy Color era
 - **Dual Navigation Modes**:
   - Portfolio Mode: Classic web portfolio with smooth navigation
-  - Game Mode: Interactive pixel-art adventure (coming soon with Three.js)
+  - Game Mode: Interactive pixel-art adventure (coming soon with Phaser.js)
 - **Bilingual Support**: Seamless switching between German (primary) and English
 - **Responsive Design**: Optimized for all screen sizes
 - **Modern Tech Stack**: Built with React 18 + Vite for lightning-fast performance
@@ -125,7 +125,7 @@ Toggle between German (DE) and English (EN) with a single click. The language pr
 
 ## Upcoming Features
 
-- [ ] Three.js game mode implementation
+- [ ] Phaser.js game mode implementation
 - [ ] Dark mode toggle functionality
 - [ ] More projects in portfolio
 - [ ] Blog section
