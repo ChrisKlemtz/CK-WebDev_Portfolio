@@ -1034,10 +1034,8 @@ section {
   &__lang-toggle {
     background-color: $color-accent-yellow;
     border: 2px solid $color-white;
-    padding: $spacing-xs;
+    padding: $spacing-xs $spacing-sm;
     cursor: pointer;
-    width: 48px;
-    height: 48px;
     font-family: $font-primary;
     font-size: $font-size-small;
     transition: all $transition-fast;
@@ -1053,8 +1051,7 @@ section {
     }
 
     @media (max-width: $breakpoint-xs) {
-      width: 44px;
-      height: 44px;
+      padding: $spacing-xs;
     }
   }
 
@@ -1535,8 +1532,30 @@ section {
 }
 
 .landing__lang-toggle {
-  width: 48px;
-  height: 48px;
+  background-color: $color-accent-yellow;
+  border: $border-width solid $color-primary-dark;
+  color: $color-primary-dark;
+  padding: $spacing-xs $spacing-sm;
+  font-family: $font-primary;
+  font-size: $font-size-small;
+  cursor: pointer;
+  box-shadow: $shadow-small;
+  transition: all $transition-fast;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: $color-accent-green;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 $color-primary-dark;
+  }
+
+  &:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+  }
 }
 
 // Back to Top Button

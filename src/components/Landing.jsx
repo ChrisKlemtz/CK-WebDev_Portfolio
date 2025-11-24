@@ -64,18 +64,18 @@ function Landing() {
 
           <div className="landing__toggle-buttons">
             <button
-              className="landing__theme-toggle"
-              onClick={toggleTheme}
-              aria-label="Toggle dark mode"
-            >
-              {isDarkMode ? '☀' : '🌙'}
-            </button>
-            <button
               className="landing__lang-toggle"
               onClick={toggleLanguage}
               aria-label="Toggle language"
             >
               {language === 'de' ? 'EN' : 'DE'}
+            </button>
+            <button
+              className="landing__theme-toggle"
+              onClick={toggleTheme}
+              aria-label="Toggle dark mode"
+            >
+              {isDarkMode ? '☀' : '🌙'}
             </button>
           </div>
         </div>
