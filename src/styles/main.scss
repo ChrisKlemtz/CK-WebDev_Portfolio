@@ -688,8 +688,12 @@ section {
 
   &__content, &__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     gap: $spacing-lg;
+
+    @media (max-width: $breakpoint-sm) {
+      gap: $spacing-md;
+    }
 
     @media (max-width: $breakpoint-xs) {
       grid-template-columns: 1fr;
@@ -783,13 +787,87 @@ section {
 }
 
 // Tech Stack
+.tech-stack__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: $spacing-lg;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  // On larger desktops (3 columns fit)
+  @media (min-width: 1280px) {
+    .tech-category {
+      grid-column: span 2;
+    }
+
+    // First 3 boxes take full width (2 columns each = 6 columns total)
+    .tech-category:nth-child(1),
+    .tech-category:nth-child(2),
+    .tech-category:nth-child(3) {
+      grid-column: span 2;
+    }
+
+    // Last 2 boxes centered (skip 1 column, span 2, skip 1 column)
+    .tech-category:nth-child(4) {
+      grid-column: 2 / span 2;
+    }
+
+    .tech-category:nth-child(5) {
+      grid-column: 4 / span 2;
+    }
+  }
+
+  // Tablets and smaller desktops (2 columns)
+  @media (max-width: 1279px) and (min-width: 769px) {
+    grid-template-columns: repeat(2, 1fr);
+
+    .tech-category {
+      grid-column: span 1;
+    }
+  }
+
+  // Tablets (1 or 2 columns depending on space)
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: $spacing-md;
+
+    .tech-category {
+      grid-column: span 1;
+    }
+  }
+
+  // Mobile (1 column)
+  @media (max-width: $breakpoint-xs) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+
+    .tech-category {
+      grid-column: span 1;
+    }
+  }
+}
+
 .tech-category {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
   &__title {
     font-size: $font-size-base;
     color: $color-accent-green;
     text-align: center;
     padding-bottom: $spacing-sm;
     border-bottom: 2px solid $color-accent-green;
+    line-height: 1.6;
+    flex-shrink: 0;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-small;
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      font-size: 11px;
+    }
   }
 
   &__skills {
@@ -798,6 +876,13 @@ section {
     gap: $spacing-xs;
     justify-content: center;
     margin-top: $spacing-md;
+    flex: 1;
+    align-content: flex-start;
+
+    @media (max-width: $breakpoint-xs) {
+      gap: 6px;
+      margin-top: $spacing-sm;
+    }
   }
 }
 
@@ -807,11 +892,24 @@ section {
   background-color: $color-primary-dark;
   color: $color-white;
   border: 2px solid $color-primary-dark;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: center;
 
   &:hover {
     background-color: $color-accent-green;
     color: $color-primary-dark;
     transform: scale(1.05);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 9px;
+    padding: 6px 10px;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    font-size: 8px;
+    padding: 5px 8px;
   }
 }
 
@@ -821,7 +919,20 @@ section {
   max-width: 600px;
   margin: $spacing-xl auto 0;
 
-  h3, p { color: $color-primary-dark; }
+  h3, p {
+    color: $color-primary-dark;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    margin: $spacing-lg auto 0;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    margin: $spacing-md auto 0;
+    max-width: 100%;
+  }
 }
 
 // Contact
