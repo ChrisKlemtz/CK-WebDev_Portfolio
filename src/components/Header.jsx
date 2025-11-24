@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../i18n/LanguageContext';
 
 function Header() {
   const { language, toggleLanguage, t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,11 +35,11 @@ function Header() {
 
           <div className={`header__menu-wrapper ${isMenuOpen ? 'header__menu-wrapper--open' : ''}`}>
             <ul className="header__menu">
-              <li><Link to="/home" onClick={closeMenu}>{t('nav.home')}</Link></li>
-              <li><Link to="/about" onClick={closeMenu}>{t('nav.about')}</Link></li>
-              <li><Link to="/projects" onClick={closeMenu}>{t('nav.projects')}</Link></li>
-              <li><Link to="/tech-stack" onClick={closeMenu}>{t('nav.techStack')}</Link></li>
-              <li><Link to="/contact" onClick={closeMenu}>{t('nav.contact')}</Link></li>
+              <li><Link to="/home" onClick={closeMenu} className={location.pathname === '/home' ? 'active' : ''}>{t('nav.home')}</Link></li>
+              <li><Link to="/about" onClick={closeMenu} className={location.pathname === '/about' ? 'active' : ''}>{t('nav.about')}</Link></li>
+              <li><Link to="/projects" onClick={closeMenu} className={location.pathname === '/projects' ? 'active' : ''}>{t('nav.projects')}</Link></li>
+              <li><Link to="/tech-stack" onClick={closeMenu} className={location.pathname === '/tech-stack' ? 'active' : ''}>{t('nav.techStack')}</Link></li>
+              <li><Link to="/contact" onClick={closeMenu} className={location.pathname === '/contact' ? 'active' : ''}>{t('nav.contact')}</Link></li>
             </ul>
 
             <div className="header__actions">

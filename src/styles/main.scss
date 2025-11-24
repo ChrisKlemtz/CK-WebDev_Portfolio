@@ -218,6 +218,12 @@ section {
         color: $color-accent-green;
         border-color: $color-accent-green;
       }
+
+      &.active {
+        color: $color-accent-green;
+        border-color: $color-accent-green;
+        background-color: rgba(155, 188, 15, 0.1);
+      }
     }
   }
 
@@ -343,6 +349,10 @@ section {
 
           &:hover {
             background-color: rgba(155, 188, 15, 0.1);
+          }
+
+          &.active {
+            background-color: rgba(155, 188, 15, 0.2);
           }
         }
       }
@@ -892,11 +902,14 @@ section {
     border: $border-width solid $color-accent-green;
     box-shadow: $shadow-medium;
     background-color: $color-primary-dark;
+    position: relative;
 
     canvas {
       display: block;
       width: 100% !important;
       height: auto !important;
+      position: relative;
+      z-index: 2;
     }
 
     @media (max-width: $breakpoint-sm) {

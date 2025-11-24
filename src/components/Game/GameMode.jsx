@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
 import Phaser from 'phaser';
+import dogGif from '/assets/gifs/dog_anoying.gif';
 
 function GameMode() {
   const { t } = useTranslation();
@@ -15,7 +16,7 @@ function GameMode() {
       parent: gameContainerRef.current,
       width: 800,
       height: 600,
-      backgroundColor: '#2C2C2C',
+      transparent: true,
       pixelArt: true,
       physics: {
         default: 'arcade',
@@ -26,19 +27,17 @@ function GameMode() {
       },
       scene: {
         create: function() {
-          // Add placeholder text
-          this.add.text(400, 300, 'Phaser.js Game Coming Soon!', {
-            fontFamily: 'Press Start 2P',
-            fontSize: '20px',
-            color: '#9BBC0F',
-            align: 'center'
-          }).setOrigin(0.5);
+          // Add semi-transparent overlay for better text readability
+          const overlay = this.add.rectangle(400, 300, 800, 600, 0x2C2C2C, 0.7);
 
-          this.add.text(400, 350, 'Use Arrow Keys to Explore', {
+          // Add "Coming Soon" text - large, bold, and green
+          this.add.text(400, 300, 'Coming Soon', {
             fontFamily: 'Press Start 2P',
-            fontSize: '12px',
-            color: '#E0E0E0',
-            align: 'center'
+            fontSize: '64px',
+            color: '#9BBC0F',
+            align: 'center',
+            stroke: '#306230',
+            strokeThickness: 10
           }).setOrigin(0.5);
         }
       }
@@ -77,7 +76,16 @@ function GameMode() {
             </p>
 
             {/* Phaser Game Container */}
-            <div ref={gameContainerRef} className="game-mode__canvas" />
+            <div
+              ref={gameContainerRef}
+              className="game-mode__canvas"
+              style={{
+                backgroundImage: `url(${dogGif})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
+            />
 
             <div className="game-mode__features">
               <div className="feature-item">
