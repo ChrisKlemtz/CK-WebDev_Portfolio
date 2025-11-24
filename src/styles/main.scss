@@ -32,7 +32,12 @@ $shadow-medium: 6px 6px 0 $color-primary-dark;
 $shadow-large: 8px 8px 0 $color-primary-dark;
 
 $transition-fast: 0.15s ease;
-$breakpoint-tablet: 768px;
+
+// Breakpoints (Custom sizes)
+$breakpoint-xs: 480px;     // 0-480px: Smaller smartphones
+$breakpoint-sm: 768px;     // 481-768px: Tablets & larger phones
+$breakpoint-md: 1279px;    // 769-1279px: Laptops, larger tablets in landscape, small desktops
+// 1280px+: Larger desktops and monitors (no max-width needed)
 
 // Global Styles
 * {
@@ -82,6 +87,14 @@ a {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 $spacing-md;
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 0 $spacing-sm;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    padding: 0 $spacing-xs;
+  }
 }
 
 .retro-btn {
@@ -136,6 +149,9 @@ a {
 
 section {
   padding: $spacing-xxl 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 // Header
@@ -146,18 +162,38 @@ section {
   position: sticky;
   top: 0;
   z-index: 100;
+  width: 100%;
 
   &__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: $spacing-md;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+
+    @media (max-width: $breakpoint-sm) {
+      padding: 0 $spacing-sm;
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      padding: 0 $spacing-xs;
+      gap: $spacing-sm;
+    }
   }
 
   &__logo {
     font-size: $font-size-medium;
     color: $color-white;
+    white-space: nowrap;
+    flex-shrink: 0;
+
     &:hover { color: $color-white; }
+
+    @media (max-width: $breakpoint-xs) {
+      font-size: $font-size-base;
+    }
   }
 
   &__menu {
@@ -167,11 +203,16 @@ section {
     flex: 1;
     justify-content: center;
 
+    @media (max-width: $breakpoint-md) {
+      gap: $spacing-sm;
+    }
+
     li a {
       color: $color-white;
       font-size: $font-size-small;
       padding: $spacing-xs $spacing-sm;
       border: 2px solid transparent;
+      white-space: nowrap;
 
       &:hover {
         color: $color-accent-green;
@@ -191,6 +232,7 @@ section {
     display: flex;
     align-items: center;
     gap: $spacing-sm;
+    flex-shrink: 0;
   }
 
   &__hamburger {
@@ -249,7 +291,8 @@ section {
     }
   }
 
-  @media (max-width: $breakpoint-tablet) {
+  // Responsive: Mobile and Tablet
+  @media (max-width: $breakpoint-md) {
     &__hamburger {
       display: flex;
     }
@@ -257,30 +300,30 @@ section {
     &__menu-wrapper {
       position: fixed;
       top: 80px;
-      left: 50%;
-      transform: translateX(-50%) translateY(-150%);
-      width: 90%;
-      max-width: 500px;
+      left: $spacing-sm;
+      right: $spacing-sm;
+      transform: translateY(-150%);
       background-color: $color-primary-dark;
       border: $border-width solid $color-accent-green;
       flex-direction: column;
       align-items: center;
-      padding: $spacing-lg $spacing-md;
+      padding: $spacing-lg $spacing-sm;
       transition: transform 0.4s ease;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
       max-height: calc(100vh - 120px);
       overflow-y: auto;
+      overflow-x: hidden;
 
       &--open {
-        transform: translateX(-50%) translateY(0);
+        transform: translateY(0);
       }
     }
 
     &__menu {
       flex-direction: column;
       width: 100%;
+      max-width: 100%;
       gap: 0;
-      align-items: stretch;
 
       li {
         width: 100%;
@@ -292,9 +335,11 @@ section {
 
         a {
           display: block;
-          padding: $spacing-md;
+          width: 100%;
+          padding: $spacing-sm;
           text-align: center;
-          border: 2px solid transparent;
+          border: none;
+          font-size: 10px;
 
           &:hover {
             background-color: rgba(155, 188, 15, 0.1);
@@ -305,20 +350,23 @@ section {
 
     &__actions {
       width: 100%;
+      max-width: 100%;
+      margin-top: $spacing-sm;
+      padding-top: $spacing-sm;
+      border-top: 1px solid rgba(155, 188, 15, 0.3);
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: $spacing-sm;
-      margin-top: $spacing-lg;
-      padding-top: $spacing-md;
-      border-top: 1px solid rgba(155, 188, 15, 0.3);
-      flex-wrap: nowrap;
+      gap: $spacing-xs;
+      flex-wrap: wrap;
     }
 
     &__back-btn {
       margin-left: 0 !important;
-      font-size: 10px !important;
+      font-size: 9px !important;
       padding: $spacing-xs !important;
+      flex: 1 1 100%;
+      max-width: 100%;
     }
 
     &__theme-toggle,
@@ -326,6 +374,30 @@ section {
       flex-shrink: 0;
       width: 44px !important;
       height: 44px !important;
+      padding: $spacing-xs !important;
+      font-size: 12px;
+    }
+  }
+
+  // Responsive: Mobile only
+  @media (max-width: $breakpoint-xs) {
+    &__menu {
+      li a {
+        padding: $spacing-xs;
+        font-size: 9px;
+      }
+    }
+
+    &__back-btn {
+      font-size: 8px !important;
+      padding: 6px !important;
+    }
+
+    &__theme-toggle,
+    &__lang-toggle {
+      width: 40px !important;
+      height: 40px !important;
+      font-size: 11px;
     }
   }
 }
@@ -393,24 +465,45 @@ section {
 .footer {
   background-color: $color-primary-dark;
   border-top: $border-width solid $color-accent-green;
-  padding: $spacing-xl 0 $spacing-md;
+  padding: $spacing-xl 0 $spacing-lg;
   margin-top: $spacing-xxl;
+  width: 100%;
 
   &__content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     gap: $spacing-lg;
-  }
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+    text-align: center;
 
-  &__title {
-    color: $color-accent-green;
-    font-size: $font-size-small;
+    @media (max-width: $breakpoint-sm) {
+      padding: 0 $spacing-sm;
+      gap: $spacing-md;
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      padding: 0 $spacing-xs;
+      gap: $spacing-sm;
+    }
   }
 
   &__links {
     display: flex;
-    gap: $spacing-md;
+    gap: $spacing-lg;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: $breakpoint-sm) {
+      gap: $spacing-md;
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      gap: $spacing-sm;
+    }
   }
 
   &__link {
@@ -418,17 +511,45 @@ section {
     font-size: $font-size-small;
     padding: $spacing-xs $spacing-sm;
     border: 2px solid transparent;
+    white-space: nowrap;
+    transition: all $transition-fast;
 
     &:hover {
       color: $color-accent-green;
       border-color: $color-accent-green;
+      transform: translateY(-2px);
     }
+
+    @media (max-width: $breakpoint-xs) {
+      font-size: 10px;
+      padding: 6px $spacing-xs;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    align-items: center;
   }
 
   &__copy, &__tagline {
     color: $color-white;
     font-size: 10px;
     margin: 0;
+    line-height: 1.6;
+
+    @media (max-width: $breakpoint-xs) {
+      font-size: 8px;
+    }
+  }
+
+  &__copy {
+    font-weight: normal;
+  }
+
+  &__tagline {
+    opacity: 0.8;
   }
 }
 
@@ -442,6 +563,12 @@ section {
     display: flex;
     align-items: center;
     gap: $spacing-xxl;
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      text-align: center;
+      gap: $spacing-lg;
+    }
   }
 
   &__pixel-frame {
@@ -458,6 +585,11 @@ section {
     border: 2px solid $color-primary-dark;
     overflow: hidden;
     position: relative;
+
+    @media (max-width: $breakpoint-xs) {
+      width: 150px;
+      height: 150px;
+    }
   }
 
   &__profile-image {
@@ -467,23 +599,54 @@ section {
     display: block;
   }
 
-  &__text { flex: 1; }
+  &__text {
+    flex: 1;
 
-  &__greeting { margin-bottom: $spacing-sm; }
+    @media (max-width: $breakpoint-md) {
+      width: 100%;
+    }
+  }
+
+  &__greeting {
+    margin-bottom: $spacing-sm;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-large;
+    }
+  }
 
   &__title {
     color: $color-accent-green;
     margin-bottom: $spacing-md;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-medium;
+    }
   }
 
   &__description {
     margin-bottom: $spacing-lg;
     max-width: 600px;
+
+    @media (max-width: $breakpoint-md) {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   &__actions {
     display: flex;
     gap: $spacing-md;
+    flex-wrap: wrap;
+
+    @media (max-width: $breakpoint-md) {
+      justify-content: center;
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      flex-direction: column;
+      align-items: stretch;
+    }
   }
 
   &__scroll-indicator {
@@ -493,6 +656,10 @@ section {
     transform: translateX(-50%);
     font-size: $font-size-medium;
     color: $color-accent-green;
+
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
   }
 }
 
@@ -502,18 +669,32 @@ section {
     text-align: center;
     font-size: $font-size-xlarge;
     margin-bottom: $spacing-xxl;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-large;
+      margin-bottom: $spacing-lg;
+    }
   }
 
   &__content, &__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: $spacing-lg;
+
+    @media (max-width: $breakpoint-xs) {
+      grid-template-columns: 1fr;
+      gap: $spacing-md;
+    }
   }
 
   &__subtitle {
     font-size: $font-size-medium;
     color: $color-accent-green;
     margin-bottom: $spacing-md;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-base;
+    }
   }
 }
 
@@ -709,6 +890,11 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: $spacing-md;
     margin: $spacing-lg 0;
+
+    @media (max-width: $breakpoint-xs) {
+      grid-template-columns: 1fr;
+      gap: $spacing-sm;
+    }
   }
 
   &__info {
@@ -775,7 +961,7 @@ section {
     margin-bottom: $spacing-md;
     letter-spacing: 2px;
 
-    @media (max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-md) {
       font-size: $font-size-large;
     }
   }
@@ -810,7 +996,7 @@ section {
     margin-bottom: $spacing-xl;
     color: $color-primary-dark;
 
-    @media (max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-md) {
       font-size: $font-size-medium;
     }
   }
@@ -860,7 +1046,7 @@ section {
     gap: $spacing-xxl;
     margin-bottom: $spacing-xxl;
 
-    @media (max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-md) {
       flex-direction: column;
       text-align: center;
     }
@@ -896,7 +1082,7 @@ section {
     font-size: $font-size-xlarge;
     margin-bottom: $spacing-sm;
 
-    @media (max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-md) {
       font-size: $font-size-large;
     }
   }
@@ -911,7 +1097,7 @@ section {
     margin-bottom: $spacing-xl;
     max-width: 600px;
 
-    @media (max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-md) {
       margin-left: auto;
       margin-right: auto;
     }
@@ -922,7 +1108,7 @@ section {
     gap: $spacing-md;
     flex-wrap: wrap;
 
-    @media (max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-md) {
       justify-content: center;
     }
   }
@@ -931,6 +1117,11 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: $spacing-lg;
+
+    @media (max-width: $breakpoint-xs) {
+      grid-template-columns: 1fr;
+      gap: $spacing-md;
+    }
   }
 
   &__feature {
@@ -990,6 +1181,10 @@ section {
   cursor: pointer;
   box-shadow: $shadow-small;
   transition: all $transition-fast;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background-color: $color-accent-green;
@@ -1012,4 +1207,71 @@ section {
   top: $spacing-md;
   right: $spacing-md;
   z-index: 10;
+}
+
+// Back to Top Button
+.back-to-top {
+  position: fixed;
+  bottom: $spacing-lg;
+  right: $spacing-lg;
+  width: 44px;
+  height: 44px;
+  background-color: $color-accent-green;
+  border: $border-width solid $color-primary-dark;
+  color: $color-primary-dark;
+  font-family: $font-primary;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: $shadow-small;
+  transition: all $transition-fast;
+  z-index: 90;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    background-color: $color-accent-yellow;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0 $color-primary-dark;
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 2px 2px 0 $color-primary-dark;
+  }
+
+  &__arrow {
+    display: block;
+    animation: pixel-blink 2s infinite;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .back-to-top {
+    bottom: $spacing-md;
+    right: $spacing-md;
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
+}
+
+// Extra small devices (phones, less than 480px)
+@media (max-width: $breakpoint-xs) {
+  .back-to-top {
+    bottom: $spacing-sm;
+    right: $spacing-sm;
+    width: 36px;
+    height: 36px;
+    font-size: 10px;
+  }
 }

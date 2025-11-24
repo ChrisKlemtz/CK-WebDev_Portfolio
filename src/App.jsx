@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { LanguageProvider } from './i18n/LanguageContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
 import Landing from './components/Landing';
 import Home from './components/Home';
 import About from './components/About';
@@ -32,6 +33,7 @@ function AppContent() {
         </Routes>
       </main>
       {showLayout && <Footer />}
+      {showLayout && <BackToTop />}
     </div>
   );
 }
