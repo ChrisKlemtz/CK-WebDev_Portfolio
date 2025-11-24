@@ -8,7 +8,7 @@ function TechStack() {
     { titleKey: 'techStack.frontend', skills: ['HTML & CSS', 'Design Fundamentals', 'SCSS', 'Bootstrap', 'JavaScript', 'DOM Manipulation', 'React', 'Vite', 'ESM Modules'] },
     { titleKey: 'techStack.backend', skills: ['Node.js', 'NPM', 'Express.js', 'REST API', 'MongoDB', 'Mongoose'] },
     { titleKey: 'techStack.programmingConcepts', skills: ['OOP', 'Functional Programming', 'Algorithms', 'Data Structures', 'Fetch API', 'Promises'] },
-    { titleKey: 'techStack.specializations', skills: ['Three.js', 'Cybersecurity', 'JWT Auth', 'Cookies & Sessions'] },
+    { titleKey: 'techStack.specializations', skills: ['Phaser.js', 'Game Development', 'Cybersecurity', 'JWT Auth', 'Cookies & Sessions'] },
   ];
 
   return (

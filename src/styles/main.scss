@@ -885,6 +885,25 @@ section {
     text-align: left;
   }
 
+  &__canvas {
+    width: 100%;
+    max-width: 800px;
+    margin: $spacing-lg auto;
+    border: $border-width solid $color-accent-green;
+    box-shadow: $shadow-medium;
+    background-color: $color-primary-dark;
+
+    canvas {
+      display: block;
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      max-width: 100%;
+    }
+  }
+
   &__features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

@@ -27,7 +27,7 @@ function Projects() {
       title: 'Project Name 3',
       description: 'An innovative solution for [problem]. Features include [feature 1], [feature 2], and [feature 3].',
       role: 'Full-Stack Developer',
-      tech: ['Three.js', 'Node.js', 'MongoDB'],
+      tech: ['Phaser.js', 'Node.js', 'MongoDB'],
       liveUrl: '#',
       githubUrl: '#',
     },

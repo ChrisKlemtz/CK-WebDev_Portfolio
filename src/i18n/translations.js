@@ -70,7 +70,7 @@ export const translations = {
       programmingConcepts: "Programmierkonzepte",
       specializations: "Spezialisierungen",
       currentlyLearning: "Aktuell am Lernen",
-      currentlyLearningText: "Immer am Erweitern meines Skillsets! Aktuell erforsche ich fortgeschrittene React-Patterns, WebGL mit Three.js und moderne DevOps-Praktiken."
+      currentlyLearningText: "Immer am Erweitern meines Skillsets! Aktuell erforsche ich fortgeschrittene React-Patterns, Game Development mit Phaser.js und moderne DevOps-Praktiken."
     },
 
     // Contact Page
@@ -101,7 +101,7 @@ export const translations = {
       learn: "Lerne über meine Reise",
       controls: "Steuerung:",
       controlsText: "Pfeiltasten zum Bewegen, Leertaste/Enter zum Interagieren",
-      inDevelopment: "Diese Funktion wird derzeit mit Three.js entwickelt und wird eine einzigartige Möglichkeit bieten, mein Portfolio zu erkunden!",
+      inDevelopment: "Diese Funktion wird derzeit mit Phaser.js entwickelt und wird eine einzigartige Möglichkeit bieten, mein Portfolio zu erkunden!",
       gameModeBtn: "Game Modus (In Entwicklung)"
     }
   },
@@ -177,7 +177,7 @@ export const translations = {
       programmingConcepts: "Programming Concepts",
       specializations: "Specializations",
       currentlyLearning: "Currently Learning",
-      currentlyLearningText: "Always expanding my skillset! Currently exploring advanced React patterns, WebGL with Three.js, and modern DevOps practices."
+      currentlyLearningText: "Always expanding my skillset! Currently exploring advanced React patterns, Game Development with Phaser.js, and modern DevOps practices."
     },
 
     // Contact Page
@@ -208,7 +208,7 @@ export const translations = {
       learn: "Learn About My Journey",
       controls: "Controls:",
       controlsText: "Arrow Keys to move, Space/Enter to interact",
-      inDevelopment: "This feature is currently under development using Three.js and will provide a unique way to explore my portfolio!",
+      inDevelopment: "This feature is currently under development using Phaser.js and will provide a unique way to explore my portfolio!",
       gameModeBtn: "Game Mode (In Development)"
     }
   }
