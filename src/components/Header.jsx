@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../i18n/LanguageContext';
+import { useTheme } from '../contexts/ThemeContext';
 
 function Header() {
   const { language, toggleLanguage, t } = useTranslation();
+  const { isDarkMode, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -55,8 +57,12 @@ function Header() {
                 <span className="pixel-icon">{language === 'de' ? 'EN' : 'DE'}</span>
               </button>
 
-              <button className="header__theme-toggle" aria-label="Toggle dark mode">
-                <span className="pixel-icon">☀</span>
+              <button
+                className="header__theme-toggle"
+                onClick={toggleTheme}
+                aria-label="Toggle dark mode"
+              >
+                <span className="pixel-icon">{isDarkMode ? '☀' : '🌙'}</span>
               </button>
             </div>
           </div>

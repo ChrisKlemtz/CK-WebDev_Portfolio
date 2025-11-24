@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-// Variables
+// Variables - Light Mode (Default)
 $color-primary-dark: #2C2C2C;
 $color-primary-medium: #404040;
 $color-primary-light: #5A5A5A;
@@ -11,6 +11,16 @@ $color-bg-light: #E0E0E0;
 $color-bg-dark: #1A1A1A;
 $color-white: #F0F0F0;
 $color-black: #0F0F0F;
+
+// Dark Mode Variables
+$color-dark-bg: #0F0F0F;
+$color-dark-bg-medium: #1A1A1A;
+$color-dark-bg-light: #2C2C2C;
+$color-dark-accent-cyan: #00D9FF;
+$color-dark-accent-blue: #0099CC;
+$color-dark-accent-purple: #1F1F3D;
+$color-dark-text: #E0E0E0;
+$color-dark-text-muted: #A0A0A0;
 
 $font-primary: 'Press Start 2P', cursive;
 $font-size-base: 16px;
@@ -57,6 +67,12 @@ body {
   color: $color-primary-dark;
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &.dark-mode {
+    background-color: $color-dark-bg;
+    color: $color-dark-text;
+  }
 }
 
 h1, h2, h3 {
@@ -79,8 +95,14 @@ a {
   color: $color-accent-green;
   text-decoration: none;
   transition: color $transition-fast;
-  
+
   &:hover { color: $color-accent-yellow; }
+
+  body.dark-mode & {
+    color: $color-dark-accent-cyan;
+
+    &:hover { color: $color-dark-accent-blue; }
+  }
 }
 
 .container {
@@ -1416,5 +1438,314 @@ section {
     width: 36px;
     height: 36px;
     font-size: 10px;
+  }
+}
+
+// ============================================
+// DARK MODE STYLES
+// ============================================
+
+body.dark-mode {
+  // Text accent colors
+  .text-accent {
+    color: $color-dark-accent-cyan;
+  }
+
+  // Header
+  .header {
+    background-color: $color-dark-bg-medium;
+    border-bottom-color: $color-dark-accent-cyan;
+
+    &__logo {
+      color: $color-dark-text;
+
+      &:hover { color: $color-dark-text; }
+    }
+
+    &__menu li a {
+      color: $color-dark-text;
+
+      &:hover {
+        color: $color-dark-accent-cyan;
+        border-color: $color-dark-accent-cyan;
+      }
+
+      &.active {
+        color: $color-dark-accent-cyan;
+        border-color: $color-dark-accent-cyan;
+        background-color: rgba(0, 217, 255, 0.1);
+      }
+    }
+
+    &__hamburger {
+      border-color: $color-dark-accent-cyan;
+
+      &-line {
+        background-color: $color-dark-accent-cyan;
+        box-shadow: 0 0 2px $color-dark-accent-cyan;
+      }
+    }
+
+    &__menu-wrapper {
+      background-color: $color-dark-bg-medium;
+      border-color: $color-dark-accent-cyan;
+    }
+
+    &__theme-toggle {
+      background-color: $color-dark-accent-cyan;
+      border-color: $color-dark-text;
+
+      &:hover {
+        background-color: $color-dark-accent-blue;
+      }
+    }
+  }
+
+  // Footer
+  .footer {
+    background-color: $color-dark-bg-medium;
+    border-top-color: $color-dark-accent-cyan;
+
+    &__link {
+      color: $color-dark-text;
+
+      &:hover {
+        color: $color-dark-accent-cyan;
+        border-color: $color-dark-accent-cyan;
+      }
+    }
+
+    &__copy, &__tagline {
+      color: $color-dark-text;
+    }
+  }
+
+  // Buttons
+  .retro-btn {
+    background-color: $color-dark-accent-cyan;
+    color: $color-dark-bg;
+    border-color: $color-dark-text;
+    box-shadow: 4px 4px 0 $color-dark-text;
+
+    &:hover {
+      background-color: $color-dark-accent-blue;
+      box-shadow: 2px 2px 0 $color-dark-text;
+    }
+
+    &--secondary {
+      background-color: $color-dark-bg-light;
+      color: $color-dark-text;
+    }
+  }
+
+  // Boxes
+  .retro-box {
+    background-color: $color-dark-bg-light;
+    border-color: $color-dark-accent-cyan;
+    box-shadow: 6px 6px 0 $color-dark-bg-medium;
+  }
+
+  // Landing Page
+  .landing {
+    background: linear-gradient(135deg, $color-dark-bg 0%, lighten($color-dark-bg, 5%) 100%);
+
+    &__title-box {
+      border-color: $color-dark-accent-cyan;
+      background-color: $color-dark-bg-light;
+      box-shadow: 8px 8px 0 $color-dark-bg-medium;
+    }
+
+    &__subtitle {
+      color: $color-dark-accent-cyan;
+    }
+
+    &__pixel-line {
+      background: repeating-linear-gradient(
+        90deg,
+        $color-dark-accent-cyan 0px,
+        $color-dark-accent-cyan 10px,
+        transparent 10px,
+        transparent 20px
+      );
+    }
+
+    &__mode-select {
+      background-color: $color-dark-bg-light;
+      border-color: $color-dark-accent-cyan;
+      box-shadow: 6px 6px 0 $color-dark-bg-medium;
+    }
+
+    &__prompt {
+      color: $color-dark-text;
+    }
+
+    &__hint {
+      color: $color-dark-text-muted;
+    }
+  }
+
+  // Hero Section
+  .hero {
+    &__pixel-frame {
+      border-color: $color-dark-accent-cyan;
+      background-color: $color-dark-bg-light;
+      box-shadow: 8px 8px 0 $color-dark-bg-medium;
+    }
+
+    &__avatar {
+      border-color: $color-dark-accent-cyan;
+    }
+
+    &__title {
+      color: $color-dark-accent-cyan;
+    }
+
+    &__scroll-indicator {
+      color: $color-dark-accent-cyan;
+    }
+  }
+
+  // Section Titles
+  .about__title, .projects__title, .tech-stack__title, .contact__title,
+  .home__title, .game-mode__title {
+    color: $color-dark-text;
+  }
+
+  .about__subtitle, .projects__subtitle, .tech-stack__subtitle, .contact__subtitle,
+  .home__greeting {
+    color: $color-dark-accent-cyan;
+  }
+
+  // Tech Stack
+  .tech-category {
+    &__title {
+      color: $color-dark-accent-cyan;
+      border-bottom-color: $color-dark-accent-cyan;
+    }
+  }
+
+  .skill-tag {
+    background-color: $color-dark-bg-medium;
+    color: $color-dark-text;
+    border-color: $color-dark-bg-medium;
+
+    &:hover {
+      background-color: $color-dark-accent-cyan;
+      color: $color-dark-bg;
+    }
+  }
+
+  .tech-stack__highlight {
+    background-color: $color-dark-accent-cyan;
+
+    h3, p {
+      color: $color-dark-bg;
+    }
+  }
+
+  // Projects
+  .project-card {
+    background-color: $color-dark-bg-light;
+    border-color: $color-dark-accent-cyan;
+    box-shadow: 6px 6px 0 $color-dark-bg-medium;
+
+    &__title {
+      color: $color-dark-accent-cyan;
+    }
+
+    &__role {
+      background-color: rgba(0, 217, 255, 0.1);
+      border-left-color: $color-dark-accent-cyan;
+    }
+
+    &__image-placeholder {
+      background: repeating-conic-gradient($color-dark-bg-light 0% 25%, $color-dark-bg-medium 0% 50%) 50% / 30px 30px;
+
+      span {
+        background-color: rgba(15, 15, 15, 0.9);
+        border-color: $color-dark-accent-cyan;
+      }
+    }
+  }
+
+  .tech-tag {
+    background-color: $color-dark-bg-medium;
+    color: $color-dark-accent-cyan;
+    border-color: $color-dark-accent-cyan;
+  }
+
+  // About boxes
+  .about__box {
+    &--highlight {
+      background-color: $color-dark-accent-cyan;
+
+      h3 { color: $color-dark-bg; }
+      p { color: $color-dark-bg; }
+    }
+  }
+
+  // Contact
+  .contact {
+    &__info-item {
+      background-color: rgba(0, 217, 255, 0.1);
+      border-left-color: $color-dark-accent-cyan;
+    }
+
+    &__cta {
+      background-color: $color-dark-accent-cyan;
+
+      p {
+        color: $color-dark-bg;
+      }
+    }
+  }
+
+  // Game Mode
+  .game-mode {
+    &__title, &__subtitle {
+      color: $color-dark-accent-cyan;
+    }
+
+    &__canvas {
+      border-color: $color-dark-accent-cyan;
+      box-shadow: 6px 6px 0 $color-dark-bg-medium;
+      background-color: $color-dark-bg-medium;
+    }
+
+    &__info {
+      background-color: rgba(0, 217, 255, 0.1);
+      border-left-color: $color-dark-accent-cyan;
+    }
+  }
+
+  .feature-item {
+    background-color: rgba(0, 217, 255, 0.05);
+    border-color: $color-dark-accent-cyan;
+  }
+
+  // Back to Top
+  .back-to-top {
+    background-color: $color-dark-accent-cyan;
+    color: $color-dark-bg;
+    border-color: $color-dark-text;
+    box-shadow: 4px 4px 0 $color-dark-text;
+
+    &:hover {
+      background-color: $color-dark-accent-blue;
+      box-shadow: 4px 4px 0 $color-dark-text;
+    }
+  }
+
+  // Language Toggle
+  .header__lang-toggle,
+  .landing__lang-toggle {
+    background-color: $color-dark-accent-cyan;
+    border-color: $color-dark-text;
+    color: $color-dark-bg;
+
+    &:hover {
+      background-color: $color-dark-accent-blue;
+      box-shadow: 2px 2px 0 $color-dark-text;
+    }
   }
 }
