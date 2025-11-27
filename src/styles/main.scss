@@ -137,7 +137,7 @@ a {
 
   @media (min-width: $breakpoint-md + 1) {
     &:hover {
-      background-color: $color-accent-yellow;
+      background-color: darken($color-accent-green, 5%);
       transform: translate(2px, 2px);
       box-shadow: 2px 2px 0 $color-primary-dark;
     }
@@ -146,6 +146,12 @@ a {
   &--secondary {
     background-color: $color-primary-light;
     color: $color-white;
+
+    @media (min-width: $breakpoint-md + 1) {
+      &:hover {
+        background-color: $color-primary-medium;
+      }
+    }
   }
 
   &--large {
@@ -2089,10 +2095,12 @@ body.dark-mode {
     transition: all $transition-fast;
     box-shadow: 2px 2px 0 $color-primary-dark;
 
-    &:hover {
-      background-color: $color-accent-yellow;
-      transform: translate(2px, 2px);
-      box-shadow: none;
+    @media (min-width: $breakpoint-md + 1) {
+      &:hover {
+        background-color: darken($color-accent-green, 5%);
+        transform: translate(2px, 2px);
+        box-shadow: none;
+      }
     }
   }
 
