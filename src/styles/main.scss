@@ -2045,3 +2045,239 @@ body.dark-mode {
     }
   }
 }
+
+// Download Modal
+.download-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: $spacing-md;
+  animation: fadeIn 0.3s ease;
+}
+
+.download-modal {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  padding: $spacing-xl;
+  animation: slideUp 0.3s ease;
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg;
+  }
+
+  &__close {
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-sm;
+    background: $color-accent-green;
+    border: 2px solid $color-primary-dark;
+    color: $color-primary-dark;
+    font-size: 20px;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-family: $font-primary;
+    transition: all $transition-fast;
+    box-shadow: 2px 2px 0 $color-primary-dark;
+
+    &:hover {
+      background-color: $color-accent-yellow;
+      transform: translate(2px, 2px);
+      box-shadow: none;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-large;
+    color: $color-accent-green;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: $font-size-medium;
+    }
+  }
+
+  &__description {
+    font-family: $font-body;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    color: $color-primary-dark;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 18px;
+    }
+  }
+
+  &__buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: $spacing-md;
+  }
+
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-lg !important;
+    min-height: 140px;
+    justify-content: center;
+    text-decoration: none;
+
+    @media (max-width: $breakpoint-sm) {
+      min-height: 120px;
+      padding: $spacing-md !important;
+    }
+  }
+
+  &__icon {
+    font-size: 40px;
+    display: block;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 32px;
+    }
+  }
+
+  &__label {
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.4;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 12px;
+    }
+  }
+}
+
+// Header Download Button
+.header__menu-download {
+  border-top: 2px solid rgba(155, 188, 15, 0.3);
+  margin-top: $spacing-sm;
+  padding-top: $spacing-sm;
+
+  @media (min-width: $breakpoint-md + 1) {
+    border-top: none;
+    border-left: 2px solid rgba(155, 188, 15, 0.3);
+    margin-top: 0;
+    margin-left: $spacing-sm;
+    padding-top: 0;
+    padding-left: $spacing-sm;
+  }
+}
+
+.header__download-trigger {
+  display: block;
+  width: 100%;
+  padding: $spacing-sm;
+  text-align: center;
+  border: none;
+  background-color: rgba(155, 188, 15, 0.2);
+  color: $color-white;
+  font-family: $font-primary;
+  font-size: clamp(16px, 4vw, 20px);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  @media (min-width: $breakpoint-md + 1) {
+    font-size: 16px;
+    padding: $spacing-xs $spacing-sm;
+
+    &:hover {
+      background-color: rgba(155, 188, 15, 0.4);
+      color: $color-accent-green;
+    }
+  }
+}
+
+// Contact & About Download CTA
+.contact__downloads-cta,
+.about__downloads-cta {
+  text-align: center;
+  max-width: 500px;
+  margin: $spacing-xl auto 0;
+
+  @media (max-width: $breakpoint-sm) {
+    margin: $spacing-lg auto 0;
+  }
+}
+
+.contact__downloads-btn,
+.about__downloads-btn {
+  margin-top: $spacing-md;
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Dark Mode for Download Modal
+body.dark-mode {
+  .download-modal {
+    &__close {
+      background: $color-dark-accent-cyan;
+      border-color: $color-dark-text;
+      color: $color-dark-bg;
+      box-shadow: 2px 2px 0 $color-dark-text;
+
+      &:hover {
+        background-color: $color-dark-accent-blue;
+      }
+    }
+
+    &__title {
+      color: $color-dark-accent-cyan;
+    }
+
+    &__description {
+      color: $color-dark-text;
+    }
+  }
+
+  .header__menu-download {
+    border-color: rgba(0, 217, 255, 0.3);
+
+    @media (min-width: $breakpoint-md + 1) {
+      border-left-color: rgba(0, 217, 255, 0.3);
+    }
+  }
+
+  .header__download-trigger {
+    background-color: rgba(0, 217, 255, 0.2);
+
+    @media (min-width: $breakpoint-md + 1) {
+      &:hover {
+        background-color: rgba(0, 217, 255, 0.4);
+        color: $color-dark-accent-cyan;
+      }
+    }
+  }
+}

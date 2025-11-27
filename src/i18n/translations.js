@@ -17,7 +17,16 @@ export const translations = {
       projects: "Projekte",
       techStack: "Tech Stack",
       contact: "Kontakt",
-      backToMenu: "Menü"
+      backToMenu: "Menü",
+      downloads: "Downloads"
+    },
+
+    // Downloads Modal
+    downloads: {
+      title: "Downloads",
+      description: "Hier kannst du meinen Lebenslauf und meine Zertifikate herunterladen.",
+      cv: "Lebenslauf (PDF)",
+      certificates: "Zertifikate (PDF)"
     },
 
     // Home Page
@@ -48,7 +57,10 @@ export const translations = {
       whatDrivesMe: "Was mich antreibt",
       whatDrivesMeText: "Technologie entwickelt sich ständig weiter, und ich gedeihe dabei, mit den neuesten Trends und Best Practices Schritt zu halten. Mich treibt die Herausforderung an, komplexe Probleme zu lösen und die Zufriedenheit, Ideen durch Code zum Leben zu erwecken.",
       beyondCode: "Jenseits von Code",
-      beyondCodeText: "Wenn ich nicht code, findest du mich vielleicht dabei, neue Technologien zu erkunden, zu Open-Source-Projekten beizutragen oder in die neuesten Gaming-Trends einzutauchen, die kreative Lösungen in der Webentwicklung inspirieren."
+      beyondCodeText: "Wenn ich nicht code, findest du mich vielleicht dabei, neue Technologien zu erkunden, zu Open-Source-Projekten beizutragen oder in die neuesten Gaming-Trends einzutauchen, die kreative Lösungen in der Webentwicklung inspirieren.",
+      documents: "Dokumente",
+      documentsText: "Lade meinen Lebenslauf und Zertifikate herunter.",
+      openDownloads: "Downloads öffnen"
     },
 
     // Projects Page
@@ -92,10 +104,9 @@ export const translations = {
       responseTime: "Antwortzeit:",
       responseTimeValue: "Normalerweise innerhalb von 24 Stunden",
       pressStart: "Drücke START um dein Projekt zu beginnen ▶",
-      downloads: "Downloads",
-      downloadsText: "Hier kannst du meinen Lebenslauf und meine Zertifikate herunterladen.",
-      downloadCV: "Lebenslauf (PDF)",
-      downloadCertificates: "Zertifikate (PDF)"
+      documents: "Dokumente",
+      documentsText: "Lade meinen Lebenslauf und Zertifikate herunter.",
+      openDownloads: "Downloads öffnen"
     },
 
     // Game Mode
@@ -133,7 +144,16 @@ export const translations = {
       projects: "Projects",
       techStack: "Tech Stack",
       contact: "Contact",
-      backToMenu: "Menu"
+      backToMenu: "Menu",
+      downloads: "Downloads"
+    },
+
+    // Downloads Modal
+    downloads: {
+      title: "Downloads",
+      description: "Download my resume and certificates here.",
+      cv: "Resume (PDF)",
+      certificates: "Certificates (PDF)"
     },
 
     // Home Page
@@ -164,7 +184,10 @@ export const translations = {
       whatDrivesMe: "What Drives Me",
       whatDrivesMeText: "Technology is constantly evolving, and I thrive on staying current with the latest trends and best practices. I'm driven by the challenge of solving complex problems and the satisfaction of seeing ideas come to life through code.",
       beyondCode: "Beyond Code",
-      beyondCodeText: "When I'm not coding, you might find me exploring new technologies, contributing to open-source projects, or diving into the latest gaming trends that inspire creative solutions in web development."
+      beyondCodeText: "When I'm not coding, you might find me exploring new technologies, contributing to open-source projects, or diving into the latest gaming trends that inspire creative solutions in web development.",
+      documents: "Documents",
+      documentsText: "Download my resume and certificates.",
+      openDownloads: "Open Downloads"
     },
 
     // Projects Page
@@ -208,10 +231,9 @@ export const translations = {
       responseTime: "Response Time:",
       responseTimeValue: "Usually within 24 hours",
       pressStart: "Press START to begin your project ▶",
-      downloads: "Downloads",
-      downloadsText: "Download my resume and certificates here.",
-      downloadCV: "Resume (PDF)",
-      downloadCertificates: "Certificates (PDF)"
+      documents: "Documents",
+      documentsText: "Download my resume and certificates.",
+      openDownloads: "Open Downloads"
     },
 
     // Game Mode

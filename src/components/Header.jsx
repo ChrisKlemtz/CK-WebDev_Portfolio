@@ -2,11 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../i18n/LanguageContext';
 import { useTheme } from '../contexts/ThemeContext';
+import DownloadModal from './DownloadModal';
 
 function Header() {
   const { language, toggleLanguage, t } = useTranslation();
   const { isDarkMode, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
   const location = useLocation();
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
@@ -67,6 +69,11 @@ function Header() {
               <li><Link to="/projects" onClick={closeMenu} className={location.pathname === '/projects' ? 'active' : ''}>{t('nav.projects')}</Link></li>
               <li><Link to="/tech-stack" onClick={closeMenu} className={location.pathname === '/tech-stack' ? 'active' : ''}>{t('nav.techStack')}</Link></li>
               <li><Link to="/contact" onClick={closeMenu} className={location.pathname === '/contact' ? 'active' : ''}>{t('nav.contact')}</Link></li>
+              <li className="header__menu-download">
+                <button onClick={() => { setIsDownloadModalOpen(true); closeMenu(); }} className="header__download-trigger">
+                  📄 {t('nav.downloads')}
+                </button>
+              </li>
             </ul>
 
             <div className="header__actions">
@@ -93,6 +100,11 @@ function Header() {
           </div>
         </nav>
       </div>
+
+      <DownloadModal
+        isOpen={isDownloadModalOpen}
+        onClose={() => setIsDownloadModalOpen(false)}
+      />
     </header>
   );
 }

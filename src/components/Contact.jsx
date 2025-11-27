@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { useTranslation } from '../i18n/LanguageContext';
+import DownloadModal from './DownloadModal';
 
 function Contact() {
   const { t } = useTranslation();
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
   return (
     <section className="contact">
@@ -44,23 +47,24 @@ function Contact() {
           </div>
         </div>
 
-        <div className="contact__downloads retro-box">
+        <div className="contact__downloads-cta retro-box">
           <h3 className="contact__subtitle">
-            <span className="text-accent">📄</span> {t('contact.downloads')}
+            <span className="text-accent">📄</span> {t('contact.documents')}
           </h3>
-          <p className="contact__downloads-text">{t('contact.downloadsText')}</p>
-          <div className="contact__downloads-grid">
-            <a href="/assets/documents/lebenslauf.pdf" download className="contact__download-btn retro-btn">
-              <span className="contact__download-icon">📄</span>
-              <span className="contact__download-label">{t('contact.downloadCV')}</span>
-            </a>
-            <a href="/assets/documents/zertifikate.pdf" download className="contact__download-btn retro-btn retro-btn--secondary">
-              <span className="contact__download-icon">🏆</span>
-              <span className="contact__download-label">{t('contact.downloadCertificates')}</span>
-            </a>
-          </div>
+          <p className="contact__downloads-text">{t('contact.documentsText')}</p>
+          <button
+            onClick={() => setIsDownloadModalOpen(true)}
+            className="contact__downloads-btn retro-btn retro-btn--large"
+          >
+            📄 {t('contact.openDownloads')}
+          </button>
         </div>
       </div>
+
+      <DownloadModal
+        isOpen={isDownloadModalOpen}
+        onClose={() => setIsDownloadModalOpen(false)}
+      />
     </section>
   );
 }

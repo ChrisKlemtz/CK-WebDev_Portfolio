@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { useTranslation } from '../i18n/LanguageContext';
+import DownloadModal from './DownloadModal';
 
 function About() {
   const { t } = useTranslation();
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
   return (
     <section className="about">
@@ -38,8 +41,26 @@ function About() {
               {t('about.beyondCodeText')}
             </p>
           </div>
+
+          <div className="retro-box about__box about__downloads-cta">
+            <h3 className="about__subtitle">
+              <span className="text-accent">📄</span> {t('about.documents')}
+            </h3>
+            <p>{t('about.documentsText')}</p>
+            <button
+              onClick={() => setIsDownloadModalOpen(true)}
+              className="about__downloads-btn retro-btn retro-btn--large"
+            >
+              📄 {t('about.openDownloads')}
+            </button>
+          </div>
         </div>
       </div>
+
+      <DownloadModal
+        isOpen={isDownloadModalOpen}
+        onClose={() => setIsDownloadModalOpen(false)}
+      />
     </section>
   );
 }
