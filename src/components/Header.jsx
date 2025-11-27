@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../i18n/LanguageContext';
 import { useTheme } from '../contexts/ThemeContext';
@@ -8,6 +8,8 @@ function Header() {
   const { isDarkMode, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const menuRef = useRef(null);
+  const hamburgerRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -16,6 +18,28 @@ function Header() {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isMenuOpen &&
+        menuRef.current &&
+        hamburgerRef.current &&
+        !menuRef.current.contains(event.target) &&
+        !hamburgerRef.current.contains(event.target)
+      ) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <header className="header">
@@ -26,6 +50,7 @@ function Header() {
           </Link>
 
           <button
+            ref={hamburgerRef}
             className={`header__hamburger ${isMenuOpen ? 'header__hamburger--open' : ''}`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
@@ -35,7 +60,7 @@ function Header() {
             <span className="header__hamburger-line"></span>
           </button>
 
-          <div className={`header__menu-wrapper ${isMenuOpen ? 'header__menu-wrapper--open' : ''}`}>
+          <div ref={menuRef} className={`header__menu-wrapper ${isMenuOpen ? 'header__menu-wrapper--open' : ''}`}>
             <ul className="header__menu">
               <li><Link to="/home" onClick={closeMenu} className={location.pathname === '/home' ? 'active' : ''}>{t('nav.home')}</Link></li>
               <li><Link to="/about" onClick={closeMenu} className={location.pathname === '/about' ? 'active' : ''}>{t('nav.about')}</Link></li>
