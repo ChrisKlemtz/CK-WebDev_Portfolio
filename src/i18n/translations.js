@@ -57,8 +57,13 @@ export const translations = {
       role: "Rolle:",
       liveDemo: "Live Demo",
       github: "GitHub",
-      midgardDesc: "Full-Stack Website für ein professionelles Tattoo-Studio mit Admin-Dashboard, Galerie-Verwaltung und WhatsApp-Integration für nahtlose Kundenkommunikation.",
-      midgardRole: "Full-Stack Developer - Komplette Entwicklung von Design bis Deployment"
+      inProgress: "In Arbeit",
+      tileMeDesc: "Moderne, responsive Website für Tile.me - eine Agentur für Webentwicklung, Marketing und SEO-Services mit Landing Page, Services-Übersicht und Kontaktformular.",
+      tileMeRole: "Frontend Developer - React, Vite, Tailwind CSS, Responsive Design",
+      aiCollectDesc: "Eine zentralisierte Plattform für den Zugriff auf mehrere KI-Assistenten (ChatGPT, Claude, DeepSeek) durch eine einheitliche Oberfläche mit Split-View-Vergleichsmodus.",
+      aiCollectRole: "Full-Stack Developer - React, TypeScript, Multiple AI API Integration",
+      midgardDesc: "Professionelle Website für ein Tattoo-Studio mit Portfolio-Galerie, Artist-Profilen, Booking-System und responsivem Design für optimale Benutzererfahrung.",
+      midgardRole: "Full-Stack Developer - React, Node.js, CSS/SCSS"
     },
 
     // Tech Stack Page
@@ -164,8 +169,13 @@ export const translations = {
       role: "Role:",
       liveDemo: "Live Demo",
       github: "GitHub",
-      midgardDesc: "Full-stack website for a professional tattoo studio featuring an admin dashboard, gallery management, and WhatsApp integration for seamless client communication.",
-      midgardRole: "Full-Stack Developer - Complete development from design to deployment"
+      inProgress: "In Progress",
+      tileMeDesc: "Modern, responsive website for Tile.me - a web development, marketing, and SEO services agency featuring landing page, services overview, and contact form.",
+      tileMeRole: "Frontend Developer - React, Vite, Tailwind CSS, Responsive Design",
+      aiCollectDesc: "A centralized platform for accessing multiple AI assistants (ChatGPT, Claude, DeepSeek) through a unified interface with split-view comparison mode.",
+      aiCollectRole: "Full-Stack Developer - React, TypeScript, Multiple AI API Integration",
+      midgardDesc: "Professional website for a tattoo studio featuring portfolio gallery, artist profiles, booking system, and responsive design for optimal user experience.",
+      midgardRole: "Full-Stack Developer - React, Node.js, CSS/SCSS"
     },
 
     // Tech Stack Page

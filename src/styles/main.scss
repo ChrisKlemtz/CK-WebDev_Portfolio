@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
 // Variables - Light Mode (Default)
 $color-primary-dark: #2C2C2C;
@@ -23,6 +23,7 @@ $color-dark-text: #E0E0E0;
 $color-dark-text-muted: #A0A0A0;
 
 $font-primary: 'Press Start 2P', cursive;
+$font-body: 'VT323', monospace;
 $font-size-base: 16px;
 $font-size-small: 12px;
 $font-size-medium: 20px;
@@ -62,12 +63,13 @@ html {
 }
 
 body {
-  font-family: $font-primary;
+  font-family: $font-body;
   background-color: $color-bg-light;
   color: $color-primary-dark;
   line-height: 1.6;
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 24px;
 
   &.dark-mode {
     background-color: $color-dark-bg;
@@ -86,7 +88,8 @@ h2 { font-size: $font-size-large; }
 h3 { font-size: $font-size-medium; }
 
 p {
-  font-size: $font-size-small;
+  font-family: $font-body;
+  font-size: 22px;
   margin-bottom: $spacing-sm;
   line-height: 1.8;
 }
@@ -126,7 +129,7 @@ a {
   color: $color-primary-dark;
   border: $border-width solid $color-primary-dark;
   font-family: $font-primary;
-  font-size: $font-size-small;
+  font-size: 12px;
   cursor: pointer;
   transition: all $transition-fast;
   box-shadow: $shadow-small;
@@ -145,7 +148,7 @@ a {
 
   &--large {
     padding: $spacing-md $spacing-lg;
-    font-size: $font-size-base;
+    font-size: 15px;
   }
 }
 
@@ -231,7 +234,7 @@ section {
 
     li a {
       color: $color-white;
-      font-size: $font-size-small;
+      font-size: 16px;
       padding: $spacing-xs $spacing-sm;
       border: 2px solid transparent;
       white-space: nowrap;
@@ -540,7 +543,7 @@ section {
 
   &__link {
     color: $color-white;
-    font-size: $font-size-small;
+    font-size: 16px;
     padding: $spacing-xs $spacing-sm;
     border: 2px solid transparent;
     white-space: nowrap;
@@ -553,7 +556,7 @@ section {
     }
 
     @media (max-width: $breakpoint-xs) {
-      font-size: 10px;
+      font-size: 14px;
       padding: 6px $spacing-xs;
     }
   }
@@ -567,12 +570,12 @@ section {
 
   &__copy, &__tagline {
     color: $color-white;
-    font-size: 10px;
+    font-size: 15px;
     margin: 0;
     line-height: 1.6;
 
     @media (max-width: $breakpoint-xs) {
-      font-size: 8px;
+      font-size: 13px;
     }
   }
 
@@ -637,12 +640,63 @@ section {
   background-color: $color-white;
   border: $border-width solid $color-primary-dark;
   box-shadow: $shadow-medium;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  &:hover { transform: translateY(-8px); }
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 8px 8px 0 $color-primary-dark;
+  }
 
   &__image-wrapper {
     height: 200px;
     border-bottom: $border-width solid $color-primary-dark;
+    overflow: hidden;
+    background-color: $color-bg-light;
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover &__image {
+    transform: scale(1.05);
+  }
+
+  &__badge {
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-sm;
+    background-color: rgba(155, 188, 15, 0.95);
+    color: $color-primary-dark;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border: 2px solid $color-primary-dark;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 8px;
+      padding: 3px 8px;
+      top: $spacing-xs;
+      right: $spacing-xs;
+      border-width: 1px;
+      letter-spacing: 0.3px;
+    }
+  }
+
+  &:hover &__badge {
+    opacity: 0;
   }
 
   &__image-placeholder {
@@ -691,8 +745,8 @@ section {
 }
 
 .tech-tag {
-  font-size: 10px;
-  padding: 6px 12px;
+  font-size: 15px;
+  padding: 10px 16px;
   background-color: $color-primary-dark;
   color: $color-accent-green;
   border: 2px solid $color-accent-green;
@@ -799,8 +853,8 @@ section {
 }
 
 .skill-tag {
-  font-size: 10px;
-  padding: 8px 12px;
+  font-size: 15px;
+  padding: 12px 16px;
   background-color: $color-primary-dark;
   color: $color-white;
   border: 2px solid $color-primary-dark;
@@ -815,13 +869,13 @@ section {
   }
 
   @media (max-width: $breakpoint-sm) {
-    font-size: 9px;
-    padding: 6px 10px;
+    font-size: 13px;
+    padding: 10px 14px;
   }
 
   @media (max-width: $breakpoint-xs) {
-    font-size: 8px;
-    padding: 5px 8px;
+    font-size: 12px;
+    padding: 9px 12px;
   }
 }
 
@@ -921,7 +975,7 @@ section {
   }
 
   &__info-item {
-    font-size: $font-size-small;
+    font-size: 16px;
     padding: $spacing-sm;
     background-color: rgba(155, 188, 15, 0.1);
     border-left: 3px solid $color-accent-green;
@@ -930,12 +984,12 @@ section {
     overflow-wrap: break-word;
 
     @media (max-width: $breakpoint-sm) {
-      font-size: 11px;
+      font-size: 14px;
       padding: $spacing-xs;
     }
 
     @media (max-width: $breakpoint-xs) {
-      font-size: 10px;
+      font-size: 13px;
     }
   }
 
@@ -1772,6 +1826,10 @@ body.dark-mode {
     border-color: $color-dark-accent-cyan;
     box-shadow: 6px 6px 0 $color-dark-bg-medium;
 
+    &:hover {
+      box-shadow: 8px 8px 0 $color-dark-bg-medium;
+    }
+
     &__title {
       color: $color-dark-accent-cyan;
     }
@@ -1779,6 +1837,17 @@ body.dark-mode {
     &__role {
       background-color: rgba(0, 217, 255, 0.1);
       border-left-color: $color-dark-accent-cyan;
+    }
+
+    &__image-wrapper {
+      background-color: $color-dark-bg-medium;
+      border-bottom-color: $color-dark-accent-cyan;
+    }
+
+    &__badge {
+      background-color: rgba(0, 217, 255, 0.95);
+      color: $color-dark-bg;
+      border-color: $color-dark-bg;
     }
 
     &__image-placeholder {

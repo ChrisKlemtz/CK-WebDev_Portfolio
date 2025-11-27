@@ -6,30 +6,33 @@ function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'Midgard Tattoo Studio',
-      descriptionKey: 'projects.midgardDesc',
-      roleKey: 'projects.midgardRole',
-      tech: ['React', 'Vite', 'Node.js', 'Express', 'MongoDB', 'Cloudinary', 'JWT'],
-      liveUrl: '#',
-      githubUrl: '#',
+      title: 'Tile.me Website Remake',
+      image: '/assets/projects/projectScreenshot_Tile.me-website2.png',
+      descriptionKey: 'projects.tileMeDesc',
+      roleKey: 'projects.tileMeRole',
+      tech: ['React', 'Vite', 'Tailwind CSS', 'Responsive Design'],
+      liveUrl: 'https://tile-me-website-remake.vercel.app/',
+      githubUrl: 'https://github.com/ChrisKlemtz/Tile.me-Website_Remake',
     },
     {
       id: 2,
-      title: 'Project Name 2',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. A modern web application built with cutting-edge technologies.',
-      role: 'Frontend Developer',
-      tech: ['React', 'SCSS', 'REST API'],
+      title: 'AI-Collect (Multi-AI Hub)',
+      image: '/assets/projects/projectScreenshot_AI-Multi-Tool.png',
+      descriptionKey: 'projects.aiCollectDesc',
+      roleKey: 'projects.aiCollectRole',
+      tech: ['React', 'TypeScript', 'Vite', 'SCSS', 'OpenAI API', 'Anthropic API', 'DeepSeek API'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/ChrisKlemtz/AI-Collect',
     },
     {
       id: 3,
-      title: 'Project Name 3',
-      description: 'An innovative solution for [problem]. Features include [feature 1], [feature 2], and [feature 3].',
-      role: 'Full-Stack Developer',
-      tech: ['Phaser.js', 'Node.js', 'MongoDB'],
-      liveUrl: '#',
-      githubUrl: '#',
+      title: 'Midgard Tattoo Studio - Website',
+      image: '/assets/projects/projectScreenshot_Midgard-Tattoo-Website.png',
+      descriptionKey: 'projects.midgardDesc',
+      roleKey: 'projects.midgardRole',
+      tech: ['React', 'Node.js', 'JavaScript', 'CSS', 'SCSS'],
+      liveUrl: 'https://midgard-final.vercel.app/',
+      githubUrl: 'https://github.com/ChrisKlemtz/Midgard_FINAL',
     },
   ];
 
@@ -44,9 +47,14 @@ function Projects() {
           {projects.map((project) => (
             <div key={project.id} className="project-card">
               <div className="project-card__image-wrapper">
-                <div className="project-card__image-placeholder">
-                  <span>Screenshot</span>
-                </div>
+                {project.image ? (
+                  <img src={project.image} alt={project.title} className="project-card__image" />
+                ) : (
+                  <div className="project-card__image-placeholder">
+                    <span>Screenshot</span>
+                  </div>
+                )}
+                <span className="project-card__badge">{t('projects.inProgress')}</span>
               </div>
 
               <div className="project-card__content">
