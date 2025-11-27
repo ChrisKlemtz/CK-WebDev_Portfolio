@@ -858,7 +858,7 @@ section {
 }
 
 .skill-tag {
-  font-size: 15px;
+  font-size: 18px;
   padding: 12px 16px;
   background-color: $color-primary-dark;
   color: $color-white;
@@ -876,12 +876,12 @@ section {
   }
 
   @media (max-width: $breakpoint-sm) {
-    font-size: 13px;
+    font-size: 15px;
     padding: 10px 14px;
   }
 
   @media (max-width: $breakpoint-xs) {
-    font-size: 12px;
+    font-size: 14px;
     padding: 9px 12px;
   }
 }
@@ -2286,6 +2286,131 @@ body.dark-mode {
         background-color: rgba(0, 217, 255, 0.4);
         color: $color-dark-accent-cyan;
       }
+    }
+  }
+}
+
+// Document Preview Modal
+.document-preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  padding: $spacing-md;
+  animation: fadeIn 0.3s ease;
+}
+
+.document-preview {
+  position: relative;
+  max-width: 1000px;
+  width: 100%;
+  height: 90vh;
+  padding: $spacing-xl;
+  animation: slideUp 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg;
+    height: 95vh;
+  }
+
+  &__close {
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-sm;
+    background: $color-accent-green;
+    border: 2px solid $color-primary-dark;
+    color: $color-primary-dark;
+    font-size: 20px;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-family: $font-primary;
+    transition: all $transition-fast;
+    box-shadow: 2px 2px 0 $color-primary-dark;
+
+    @media (min-width: $breakpoint-md + 1) {
+      &:hover {
+        background-color: darken($color-accent-green, 5%);
+        transform: translate(2px, 2px);
+        box-shadow: none;
+      }
+    }
+  }
+
+  &__title {
+    font-size: clamp(20px, 5vw, 28px);
+    margin-bottom: $spacing-lg;
+    color: $color-accent-green;
+    text-align: center;
+    font-family: $font-primary;
+  }
+
+  &__viewer {
+    flex: 1;
+    border: 3px solid $color-primary-dark;
+    background-color: $color-white;
+    margin-bottom: $spacing-lg;
+    overflow: hidden;
+    box-shadow: 4px 4px 0 $color-primary-dark;
+  }
+
+  &__iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-md;
+  }
+
+  &__download-btn {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-md $spacing-lg;
+    font-size: clamp(16px, 4vw, 18px);
+  }
+
+  &__icon {
+    font-size: 24px;
+  }
+}
+
+// Dark mode styles for document preview
+.dark-mode {
+  .document-preview {
+    &__close {
+      background-color: $color-dark-accent-cyan;
+      border-color: $color-dark-text;
+      color: $color-dark-bg;
+      box-shadow: 2px 2px 0 $color-dark-text;
+
+      @media (min-width: $breakpoint-md + 1) {
+        &:hover {
+          background-color: darken($color-dark-accent-cyan, 10%);
+        }
+      }
+    }
+
+    &__title {
+      color: $color-dark-accent-cyan;
+    }
+
+    &__viewer {
+      border-color: $color-dark-text;
+      box-shadow: 4px 4px 0 $color-dark-text;
     }
   }
 }

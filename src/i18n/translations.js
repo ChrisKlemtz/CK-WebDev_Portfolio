@@ -25,8 +25,9 @@ export const translations = {
     downloads: {
       title: "Downloads",
       description: "Hier kannst du meinen Lebenslauf und meine Zertifikate herunterladen.",
-      cv: "Lebenslauf (PDF)",
-      certificates: "Zertifikate (PDF)"
+      cv: "Lebenslauf ansehen",
+      certificates: "Zertifikate ansehen",
+      download: "Herunterladen"
     },
 
     // Home Page
@@ -152,8 +153,9 @@ export const translations = {
     downloads: {
       title: "Downloads",
       description: "Download my resume and certificates here.",
-      cv: "Resume (PDF)",
-      certificates: "Certificates (PDF)"
+      cv: "View Resume",
+      certificates: "View Certificates",
+      download: "Download"
     },
 
     // Home Page
