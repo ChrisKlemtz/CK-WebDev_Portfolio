@@ -1014,6 +1014,70 @@ section {
       }
     }
   }
+
+  &__downloads {
+    text-align: center;
+    max-width: 700px;
+    margin: $spacing-xl auto 0;
+    padding: $spacing-lg;
+
+    @media (max-width: $breakpoint-sm) {
+      margin: $spacing-lg auto 0;
+      padding: $spacing-md;
+    }
+  }
+
+  &__downloads-text {
+    font-family: $font-body;
+    font-size: 20px;
+    margin-bottom: $spacing-lg;
+    color: $color-primary-dark;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 18px;
+    }
+  }
+
+  &__downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: $spacing-md;
+    margin-top: $spacing-lg;
+  }
+
+  &__download-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-lg !important;
+    min-height: 120px;
+    justify-content: center;
+
+    @media (max-width: $breakpoint-sm) {
+      min-height: 100px;
+      padding: $spacing-md !important;
+    }
+  }
+
+  &__download-icon {
+    font-size: 32px;
+    display: block;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 28px;
+    }
+  }
+
+  &__download-label {
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.4;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 12px;
+    }
+  }
 }
 
 // Game Mode
@@ -1893,6 +1957,10 @@ body.dark-mode {
       p {
         color: $color-dark-bg;
       }
+    }
+
+    &__downloads-text {
+      color: $color-dark-text;
     }
   }
 

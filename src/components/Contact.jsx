@@ -44,8 +44,21 @@ function Contact() {
           </div>
         </div>
 
-        <div className="contact__cta retro-box">
-          {/* Platzhalter für zukünftigen Inhalt */}
+        <div className="contact__downloads retro-box">
+          <h3 className="contact__subtitle">
+            <span className="text-accent">📄</span> {t('contact.downloads')}
+          </h3>
+          <p className="contact__downloads-text">{t('contact.downloadsText')}</p>
+          <div className="contact__downloads-grid">
+            <a href="/assets/documents/lebenslauf.pdf" download className="contact__download-btn retro-btn">
+              <span className="contact__download-icon">📄</span>
+              <span className="contact__download-label">{t('contact.downloadCV')}</span>
+            </a>
+            <a href="/assets/documents/zertifikate.pdf" download className="contact__download-btn retro-btn retro-btn--secondary">
+              <span className="contact__download-icon">🏆</span>
+              <span className="contact__download-label">{t('contact.downloadCertificates')}</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -91,7 +91,11 @@ export const translations = {
       statusValue: "Verfügbar für Freelance-Arbeit",
       responseTime: "Antwortzeit:",
       responseTimeValue: "Normalerweise innerhalb von 24 Stunden",
-      pressStart: "Drücke START um dein Projekt zu beginnen ▶"
+      pressStart: "Drücke START um dein Projekt zu beginnen ▶",
+      downloads: "Downloads",
+      downloadsText: "Hier kannst du meinen Lebenslauf und meine Zertifikate herunterladen.",
+      downloadCV: "Lebenslauf (PDF)",
+      downloadCertificates: "Zertifikate (PDF)"
     },
 
     // Game Mode
@@ -203,7 +207,11 @@ export const translations = {
       statusValue: "Available for freelance work",
       responseTime: "Response Time:",
       responseTimeValue: "Usually within 24 hours",
-      pressStart: "Press START to begin your project ▶"
+      pressStart: "Press START to begin your project ▶",
+      downloads: "Downloads",
+      downloadsText: "Download my resume and certificates here.",
+      downloadCV: "Resume (PDF)",
+      downloadCertificates: "Certificates (PDF)"
     },
 
     // Game Mode
