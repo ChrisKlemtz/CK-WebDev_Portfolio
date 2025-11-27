@@ -585,116 +585,6 @@ section {
   }
 }
 
-// Hero
-.hero {
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-
-  &__content {
-    display: flex;
-    align-items: center;
-    gap: $spacing-xxl;
-
-    @media (max-width: $breakpoint-md) {
-      flex-direction: column;
-      text-align: center;
-      gap: $spacing-lg;
-    }
-  }
-
-  &__pixel-frame {
-    padding: $spacing-sm;
-    border: $border-width solid $color-primary-dark;
-    background-color: $color-white;
-    box-shadow: $shadow-large;
-    flex-shrink: 0;
-  }
-
-  &__avatar {
-    width: 200px;
-    height: 200px;
-    border: 2px solid $color-primary-dark;
-    overflow: hidden;
-    position: relative;
-
-    @media (max-width: $breakpoint-xs) {
-      width: 150px;
-      height: 150px;
-    }
-  }
-
-  &__profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  &__text {
-    flex: 1;
-
-    @media (max-width: $breakpoint-md) {
-      width: 100%;
-    }
-  }
-
-  &__greeting {
-    margin-bottom: $spacing-sm;
-
-    @media (max-width: $breakpoint-md) {
-      font-size: $font-size-large;
-    }
-  }
-
-  &__title {
-    color: $color-accent-green;
-    margin-bottom: $spacing-md;
-
-    @media (max-width: $breakpoint-md) {
-      font-size: $font-size-medium;
-    }
-  }
-
-  &__description {
-    margin-bottom: $spacing-lg;
-    max-width: 600px;
-
-    @media (max-width: $breakpoint-md) {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
-  &__actions {
-    display: flex;
-    gap: $spacing-md;
-    flex-wrap: wrap;
-
-    @media (max-width: $breakpoint-md) {
-      justify-content: center;
-    }
-
-    @media (max-width: $breakpoint-xs) {
-      flex-direction: column;
-      align-items: stretch;
-    }
-  }
-
-  &__scroll-indicator {
-    position: absolute;
-    bottom: $spacing-lg;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: $font-size-medium;
-    color: $color-accent-green;
-
-    @media (max-width: $breakpoint-md) {
-      display: none;
-    }
-  }
-}
-
 // About, Projects, TechStack, Contact shared styles
 .about, .projects, .tech-stack, .contact {
   &__title {
@@ -960,16 +850,58 @@ section {
 // Contact
 .contact {
   &__content {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 2fr;
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      gap: $spacing-md;
+    }
   }
 
-  &__box { text-align: center; }
+  &__box {
+    text-align: center;
+
+    @media (max-width: $breakpoint-md) {
+      padding: $spacing-lg;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      padding: $spacing-md;
+    }
+  }
+
+  &__subtitle {
+    @media (max-width: $breakpoint-sm) {
+      font-size: $font-size-medium;
+    }
+  }
+
+  &__text {
+    @media (max-width: $breakpoint-sm) {
+      font-size: $font-size-small;
+    }
+  }
 
   &__links {
     display: flex;
     flex-direction: column;
     gap: $spacing-md;
     align-items: center;
+
+    @media (max-width: $breakpoint-sm) {
+      gap: $spacing-sm;
+    }
+
+    .retro-btn {
+      @media (max-width: $breakpoint-sm) {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
   }
 
   &__info {
@@ -977,6 +909,15 @@ section {
     flex-direction: column;
     justify-content: center;
     gap: $spacing-md;
+
+    @media (max-width: $breakpoint-md) {
+      padding: $spacing-lg;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      padding: $spacing-md;
+      gap: $spacing-sm;
+    }
   }
 
   &__info-item {
@@ -985,6 +926,17 @@ section {
     background-color: rgba(155, 188, 15, 0.1);
     border-left: 3px solid $color-accent-green;
     text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 11px;
+      padding: $spacing-xs;
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      font-size: 10px;
+    }
   }
 
   &__cta {
@@ -993,10 +945,18 @@ section {
     max-width: 600px;
     margin: $spacing-xl auto 0;
 
+    @media (max-width: $breakpoint-sm) {
+      margin: $spacing-lg auto 0;
+    }
+
     p {
       color: $color-primary-dark;
       font-size: $font-size-medium;
       margin: 0;
+
+      @media (max-width: $breakpoint-sm) {
+        font-size: $font-size-small;
+      }
     }
   }
 }
@@ -1765,27 +1725,6 @@ body.dark-mode {
 
     &__hint {
       color: $color-dark-text-muted;
-    }
-  }
-
-  // Hero Section
-  .hero {
-    &__pixel-frame {
-      border-color: $color-dark-accent-cyan;
-      background-color: $color-dark-bg-light;
-      box-shadow: 8px 8px 0 $color-dark-bg-medium;
-    }
-
-    &__avatar {
-      border-color: $color-dark-accent-cyan;
-    }
-
-    &__title {
-      color: $color-dark-accent-cyan;
-    }
-
-    &__scroll-indicator {
-      color: $color-dark-accent-cyan;
     }
   }
 

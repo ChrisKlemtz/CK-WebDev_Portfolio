@@ -11,25 +11,6 @@ function Contact() {
         </h2>
 
         <div className="contact__content">
-          <div className="retro-box contact__box">
-            <h3 className="contact__subtitle">{t('contact.letsConnect')}</h3>
-            <p className="contact__text">
-              {t('contact.letsConnectText')}
-            </p>
-
-            <div className="contact__links">
-              <a href="mailto:dev.christophklemtz@outlook.com" className="contact__link retro-btn retro-btn--large">
-                {t('contact.emailMe')}
-              </a>
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="contact__link retro-btn retro-btn--large retro-btn--secondary">
-                GitHub
-              </a>
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="contact__link retro-btn retro-btn--large retro-btn--secondary">
-                LinkedIn
-              </a>
-            </div>
-          </div>
-
           <div className="retro-box contact__info">
             <h3 className="contact__subtitle">{t('contact.quickInfo')}</h3>
             <div className="contact__info-item">
@@ -42,10 +23,29 @@ function Contact() {
               <span className="text-accent">{t('contact.responseTime')}</span> {t('contact.responseTimeValue')}
             </div>
           </div>
+
+          <div className="retro-box contact__box">
+            <h3 className="contact__subtitle">{t('contact.letsConnect')}</h3>
+            <p className="contact__text">
+              {t('contact.letsConnectText')}
+            </p>
+
+            <div className="contact__links">
+              <a href="mailto:dev.christophklemtz@outlook.com" className="contact__link retro-btn retro-btn--large">
+                {t('contact.emailMe')}
+              </a>
+              <a href="https://github.com/ChrisKlemtz" target="_blank" rel="noopener noreferrer" className="contact__link retro-btn retro-btn--large retro-btn--secondary">
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/christoph-klemtz-8558b8349/" target="_blank" rel="noopener noreferrer" className="contact__link retro-btn retro-btn--large retro-btn--secondary">
+                LinkedIn
+              </a>
+            </div>
+          </div>
         </div>
 
         <div className="contact__cta retro-box">
-          <p className="blink">{t('contact.pressStart')}</p>
+          {/* Platzhalter für zukünftigen Inhalt */}
         </div>
       </div>
     </section>

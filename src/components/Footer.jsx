@@ -6,8 +6,8 @@ function Footer() {
       <div className="footer__content">
         <div className="footer__links">
           <a href="mailto:dev.christophklemtz@outlook.com" className="footer__link">Email</a>
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="footer__link">GitHub</a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="footer__link">LinkedIn</a>
+          <a href="https://github.com/ChrisKlemtz" target="_blank" rel="noopener noreferrer" className="footer__link">GitHub</a>
+          <a href="https://www.linkedin.com/in/christoph-klemtz-8558b8349/" target="_blank" rel="noopener noreferrer" className="footer__link">LinkedIn</a>
         </div>
 
         <div className="footer__info">

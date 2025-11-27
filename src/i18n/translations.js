@@ -2,8 +2,8 @@ export const translations = {
   de: {
     // Landing Page
     landing: {
-      title: "CHRISTOPH KLEMTZ",
-      subtitle: "Full-Stack Web Developer",
+      title: "THE PORTFOLIO",
+      subtitle: "by Christoph Klemtz",
       selectMode: "MODUS WÄHLEN",
       portfolioBtn: "Portfolio erkunden",
       gameBtn: "Spiel starten",
@@ -109,8 +109,8 @@ export const translations = {
   en: {
     // Landing Page
     landing: {
-      title: "CHRISTOPH KLEMTZ",
-      subtitle: "Full-Stack Web Developer",
+      title: "THE PORTFOLIO",
+      subtitle: "by Christoph Klemtz",
       selectMode: "SELECT MODE",
       portfolioBtn: "Explore Portfolio",
       gameBtn: "Start Game",
