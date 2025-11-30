@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useTranslation } from '../i18n/LanguageContext';
 import DownloadModal from './DownloadModal';
+import ContactModal from './ContactModal';
 
 function Contact() {
   const { t } = useTranslation();
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   return (
     <section className="contact">
@@ -34,9 +36,12 @@ function Contact() {
             </p>
 
             <div className="contact__links">
-              <a href="mailto:dev.christophklemtz@outlook.com" className="contact__link retro-btn retro-btn--large">
+              <button
+                onClick={() => setIsContactModalOpen(true)}
+                className="contact__link retro-btn retro-btn--large"
+              >
                 {t('contact.emailMe')}
-              </a>
+              </button>
               <a href="https://github.com/ChrisKlemtz" target="_blank" rel="noopener noreferrer" className="contact__link retro-btn retro-btn--large retro-btn--secondary">
                 GitHub
               </a>
@@ -64,6 +69,11 @@ function Contact() {
       <DownloadModal
         isOpen={isDownloadModalOpen}
         onClose={() => setIsDownloadModalOpen(false)}
+      />
+
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
       />
     </section>
   );

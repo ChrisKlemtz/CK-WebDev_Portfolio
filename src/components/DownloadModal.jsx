@@ -8,11 +8,24 @@ function DownloadModal({ isOpen, onClose }) {
   const modalRef = useRef(null);
   const [previewDocument, setPreviewDocument] = useState(null);
   const [showAdditionalCerts, setShowAdditionalCerts] = useState(false);
+  const [additionalCertificates, setAdditionalCertificates] = useState([]);
 
-  // Additional certificates
-  const additionalCertificates = [
-    { name: 'KI-Ethik Zertifikat', url: '/assets/documents/additional/ki-ethik_certificate.pdf' }
-  ];
+  // Load certificates from JSON file
+  useEffect(() => {
+    fetch('/assets/documents/additional/certificates.json')
+      .then(response => response.json())
+      .then(data => {
+        const certs = data.map(cert => ({
+          name: cert.name,
+          url: `/assets/documents/additional/${cert.filename}`
+        }));
+        setAdditionalCertificates(certs);
+      })
+      .catch(error => {
+        console.error('Error loading certificates:', error);
+        setAdditionalCertificates([]);
+      });
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {

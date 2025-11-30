@@ -34,6 +34,15 @@ export const translations = {
       backToOverview: "Zurück zur Übersicht"
     },
 
+    // Contact Modal
+    contactModal: {
+      title: "Kontakt aufnehmen",
+      description: "Wähle deine bevorzugte Kontaktmethode:",
+      whatsapp: "WhatsApp",
+      email: "E-Mail",
+      call: "Anrufen"
+    },
+
     // Home Page
     home: {
       greeting: "Willkommen in meinem",
@@ -164,6 +173,15 @@ export const translations = {
       additionalCertificates: "Additional Certificates",
       additionalCertificatesDesc: "Select a certificate to view it in full size.",
       backToOverview: "Back to Overview"
+    },
+
+    // Contact Modal
+    contactModal: {
+      title: "Get In Touch",
+      description: "Choose your preferred contact method:",
+      whatsapp: "WhatsApp",
+      email: "Email",
+      call: "Call"
     },
 
     // Home Page
