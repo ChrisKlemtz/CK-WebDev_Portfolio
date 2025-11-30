@@ -27,7 +27,11 @@ export const translations = {
       description: "Hier kannst du meinen Lebenslauf und meine Zertifikate herunterladen.",
       cv: "Lebenslauf ansehen",
       certificates: "Zertifikate ansehen",
-      download: "Herunterladen"
+      download: "Herunterladen",
+      moreСertificates: "Weitere Zertifikate",
+      additionalCertificates: "Weitere Zertifikate",
+      additionalCertificatesDesc: "Wähle ein Zertifikat aus, um es in voller Größe anzusehen.",
+      backToOverview: "Zurück zur Übersicht"
     },
 
     // Home Page
@@ -155,7 +159,11 @@ export const translations = {
       description: "Download my resume and certificates here.",
       cv: "View Resume",
       certificates: "View Certificates",
-      download: "Download"
+      download: "Download",
+      moreСertificates: "More Certificates",
+      additionalCertificates: "Additional Certificates",
+      additionalCertificatesDesc: "Select a certificate to view it in full size.",
+      backToOverview: "Back to Overview"
     },
 
     // Home Page
