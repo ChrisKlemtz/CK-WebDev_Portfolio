@@ -117,7 +117,7 @@ function DownloadModal({ isOpen, onClose }) {
 
             <div className="download-modal__buttons">
               <button
-                onClick={() => handlePreview('/assets/documents/lebenslauf.pdf', t('downloads.cv'), false)}
+                onClick={() => handlePreview('/assets/documents/CK_Resume.pdf', t('downloads.cv'), false)}
                 className="download-modal__btn retro-btn retro-btn--large"
               >
                 <span className="download-modal__icon">📄</span>
