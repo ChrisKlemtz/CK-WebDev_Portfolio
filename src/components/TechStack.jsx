@@ -4,11 +4,11 @@ function TechStack() {
   const { t } = useTranslation();
 
   const techCategories = [
-    { titleKey: 'techStack.devEnvironment', skills: ['Linux', 'Git', 'GitHub', 'VS Code'] },
-    { titleKey: 'techStack.frontend', skills: ['HTML & CSS', 'Design Fundamentals', 'SCSS', 'Bootstrap', 'JavaScript', 'DOM Manipulation', 'React', 'Vite', 'ESM Modules'] },
-    { titleKey: 'techStack.backend', skills: ['Node.js', 'NPM', 'Express.js', 'REST API', 'MongoDB', 'Mongoose'] },
+    { titleKey: 'techStack.devEnvironment', skills: ['Linux', 'Git', 'GitHub', 'VS Code', 'Figma', 'Canva', 'GIMP'] },
+    { titleKey: 'techStack.frontend', skills: ['HTML & CSS', 'Design Fundamentals', 'SCSS', 'Bootstrap', 'Tailwind CSS', 'JavaScript', 'TypeScript', 'DOM Manipulation', 'React', 'React Router', 'Redux', 'Next.js', 'Vite', 'ESM Modules'] },
+    { titleKey: 'techStack.backend', skills: ['Node.js', 'NPM', 'Express.js', 'REST API', 'MongoDB', 'Mongoose', 'MySQL'] },
     { titleKey: 'techStack.programmingConcepts', skills: ['OOP', 'Functional Programming', 'Algorithms', 'Data Structures', 'Fetch API', 'Promises'] },
-    { titleKey: 'techStack.specializations', skills: ['Phaser.js', 'Game Development', 'Cybersecurity', 'JWT Auth', 'Cookies & Sessions'] },
+    { titleKey: 'techStack.specializations', skills: ['Phaser.js', 'Game Development', 'Cybersecurity', 'JWT Auth', 'Cookies & Sessions', 'Shopify', 'A/B Testing', 'ABlyft', 'Tampermonkey', 'ClickUp'] },
   ];
 
   return (
